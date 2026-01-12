@@ -242,7 +242,11 @@ The panel is draggable and remembers its position.
 The script is designed for:
 
 – collecting Mines history
+
 – statistics
+
 – pattern discovery
+
 – R / Shiny / database analytics
+
 – automated strategy research
