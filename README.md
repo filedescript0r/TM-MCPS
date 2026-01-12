@@ -157,8 +157,11 @@ test_1, test_2, …, test_20
 
 They are usually mapped to mine counts.
 For example:
+
 test_3  → 3 mines  
+
 test_10 → 10 mines  
+
 test_14 → 14 mines  
 
 Each channel is an independent data buffer.
