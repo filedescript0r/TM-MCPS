@@ -5,6 +5,7 @@ Tampermonkey userscript для автоматического сбора рез�
 и передачи их в аналитический backend (R Plumber, API, база данных, Shiny и т.д).
 
 Скрипт:
+
 – отслеживает завершённые раунды Mines
 
 – сохраняет их в браузере
@@ -36,8 +37,11 @@ test_1, test_2, …, test_20
 
 Обычно они используются для разделения данных по количеству мин.
 Например:
+
 test_3  → игры с 3 минами  
+
 test_10 → игры с 10 минами  
+
 test_14 → игры с 14 минами  
 
 Каждый канал — это независимый буфер данных.
@@ -49,11 +53,17 @@ test_14 → игры с 14 минами
 Для каждого раунда сохраняется:
 
 – время (timestamp)
+
 – сумма ставки
+
 – количество мин
+
 – сколько клеток было открыто
+
 – win или loss
+
 – полная карта поля (каждая клетка: индекс, открыта или нет, статус)
+
 
 Это позволяет полностью восстанавливать и анализировать игру.
 
@@ -62,6 +72,7 @@ test_14 → игры с 14 минами
 
 Раунд считается завершённым, когда:
 – открыта хотя бы одна клетка
+
 – и больше нет клеток со статусом "idle"
 
 Дополнительно используется сигнатура поля, чтобы один и тот же раунд
@@ -76,12 +87,19 @@ test_14 → игры с 14 минами
 http://127.0.0.1:8000/test
 
 Отправляется один JSON с:
+
 – источником (stake)
+
 – игрой (mines)
+
 – каналом
+
 – временем отправки
+
 – количеством записей
+
 – массивом всех результатов
+
 
 Если сервер отвечает успешно (HTTP 2xx), данные из этого канала
 очищаются из браузера.
@@ -92,9 +110,13 @@ http://127.0.0.1:8000/test
 В правом нижнем углу появляется панель:
 
 – выбор канала
+
 – сколько игр сохранено
+
 – результат последней игры (win или loss)
+
 – кнопка очистки текущего канала
+
 
 Панель можно перетаскивать мышью.
 Её позиция сохраняется в браузере.
@@ -103,10 +125,15 @@ http://127.0.0.1:8000/test
 7. Назначение
 
 Скрипт предназначен для:
+
 – сбора истории Mines
+
 – статистики
+
 – поиска паттернов
+
 – построения аналитики в R / Shiny / базе данных
+
 – автоматизированных исследований стратегий
 
 
@@ -159,8 +186,11 @@ This allows full reconstruction and deep statistical analysis.
 4. How round completion is detected
 
 A round is considered finished when:
+
 – at least one tile is revealed
+
 – and no tile has the status "idle"
+
 
 A field signature is also used so the same round is never saved twice.
 
@@ -173,12 +203,19 @@ is sent to the backend:
 http://127.0.0.1:8000/test
 
 A single JSON object is sent with:
+
 – source (stake)
+
 – game (mines)
+
 – channel
+
 – send timestamp
+
 – record count
+
 – full results array
+
 
 If the server returns HTTP 2xx, the local channel buffer is cleared.
 
@@ -188,9 +225,13 @@ If the server returns HTTP 2xx, the local channel buffer is cleared.
 A floating panel appears in the bottom-right corner:
 
 – channel selector
+
 – saved rounds count
+
 – last round result (win or loss)
+
 – clear channel button
+
 
 The panel is draggable and remembers its position.
 
@@ -198,6 +239,7 @@ The panel is draggable and remembers its position.
 7. Purpose
 
 The script is designed for:
+
 – collecting Mines history
 – statistics
 – pattern discovery
