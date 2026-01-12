@@ -6,9 +6,13 @@ Tampermonkey userscript для автоматического сбора рез�
 
 Скрипт:
 – отслеживает завершённые раунды Mines
+
 – сохраняет их в браузере
+
 – группирует по каналам
+
 – отправляет на HTTP API
+
 – показывает удобную панель управления
 
 
@@ -138,10 +142,15 @@ The active channel is selected in the UI and saved in the browser.
 For each round the following data is saved:
 
 – timestamp
+
 – bet amount
+
 – mines count
+
 – number of revealed tiles
+
 – win or loss
+
 – full tile map (index, revealed, status)
 
 This allows full reconstruction and deep statistical analysis.
