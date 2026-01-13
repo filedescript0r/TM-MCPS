@@ -1,4 +1,5 @@
 // ==UserScript==
+// @author       1114.dev 
 // @name         Mines Collector + Plumber Send
 // @namespace    https://stake1082.com/
 // @version      2.2
